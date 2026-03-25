@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
     }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ fontSize: '1.5rem', fontWeight: 800, fontFamily: 'var(--font-heading)' }} className="text-gradient">
-          &lt;MQN-Dev /&gt;
+          &lt;Qaisir&minus;Dev /&gt;
         </div>
         <ul style={{ display: 'flex', gap: '2rem', fontWeight: 500 }}>
           <li><a href="#home" style={{ color: 'var(--text-main)' }}>Home</a></li>
