@@ -12,14 +12,14 @@ const projects = [
   {
     title: 'Recipe Sharing',
     description: 'A recipe sharing platform built with JavaScript, Node.js, and MongoDB. Features user authentication, recipe management, and social features.',
-    tech: ['JavaScript', 'Node.js', 'MongoDB'],
+    tech: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'MongoDB'],
     github: 'https://github.com/qaisirnaseer302/Recipe',
     live: 'https://example.com'
   },
   {
     title: 'E-Commerce Store',
     description: 'A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features user authentication, product management, and order processing.',
-    tech: ['Java', 'Node.js', 'MongoDB'],
+    tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/qaisirnaseer302/E-Commerece-Store',
     live: 'https://example.com'
   }
