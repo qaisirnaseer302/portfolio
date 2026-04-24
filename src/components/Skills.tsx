@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaReact, FaNodeJs, FaBootstrap, FaPython, FaDatabase, FaGit, FaJira } from 'react-icons/fa';
-import { SiJavascript, SiMysql, SiTailwindcss, SiMongodb, SiFlutter, SiHtml5, SiCss, SiDart } from 'react-icons/si';
+import { SiJavascript, SiMysql, SiTailwindcss, SiRedis, SiMongodb, SiFlutter, SiHtml5, SiCss, SiDart, SiGraphql } from 'react-icons/si';
 
 const skills = [
   { name: 'HTML', icon: <SiHtml5 />, category: 'Frontend', color: '#ff9900' },
@@ -17,7 +17,10 @@ const skills = [
   { name: 'Flutter', icon: <SiFlutter />, category: 'Apps', color: '#ff9900' },
   { name: 'Dart', icon: <SiDart />, category: 'Apps', color: '#ff9900' },
   { name: 'Git', icon: <FaGit />, category: 'Version Control', color: '#2496ed' },
+  { name: 'GraphQL', icon: <SiGraphql />, category: 'Backend', color: '#3a6e95ff' },
+  { name: 'Redis', icon: <SiRedis />, category: 'Cache & DB', color: '#3377acff' },
   { name: 'Jira', icon: <FaJira />, category: 'Project Management', color: '#2496ed' },
+
 ];
 
 const Skills: React.FC = () => {
