@@ -20,7 +20,7 @@ const skills = [
   { name: 'GraphQL', icon: <SiGraphql />, category: 'Backend', color: '#3a6e95ff' },
   { name: 'Redis', icon: <SiRedis />, category: 'Cache & DB', color: '#3377acff' },
   { name: 'Jira', icon: <FaJira />, category: 'Project Management', color: '#2496ed' },
-
+  { name: "microservices", icon: <FaNodeJs />, category: "Backend", color: "#339933" },
 ];
 
 const Skills: React.FC = () => {
