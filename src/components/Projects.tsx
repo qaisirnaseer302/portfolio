@@ -1,111 +1,67 @@
-import React from 'react';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FiArrowUpRight } from 'react-icons/fi';
 
 const projects = [
   {
-    title: 'Nexus Bussiness Collab',
-    description: 'A high-performance headless e-commerce platform built with Next.js, GraphQL, and Stripe integration. Features real-time inventory tracking and dynamic AI-driven product recommendations.',
+    number: '01',
+    title: 'Nexus Business Collab',
+    label: 'Commerce · Full stack',
+    description: 'A business collaboration and commerce concept built around a modern web stack, with GraphQL and Stripe in the mix.',
     tech: ['Next.js', 'React', 'GraphQL', 'Tailwind', 'Stripe'],
     github: 'https://github.com/qaisirnaseer302/Nexus',
-    live: 'https://example.com'
   },
   {
+    number: '02',
     title: 'Recipe Sharing',
-    description: 'A recipe sharing platform built with JavaScript, Node.js, and MongoDB. Features user authentication, recipe management, and social features.',
-    tech: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'MongoDB'],
+    label: 'Community · Web app',
+    description: 'A recipe-sharing platform exploring user accounts, recipe management, and social features with a JavaScript backend.',
+    tech: ['JavaScript', 'Node.js', 'MongoDB'],
     github: 'https://github.com/qaisirnaseer302/Recipe',
-    live: 'https://example.com'
   },
   {
+    number: '03',
     title: 'E-Commerce Store',
-    description: 'A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features user authentication, product management, and order processing.',
+    label: 'Commerce · Web app',
+    description: 'An e-commerce store project focused on the core shopping experience, built with the fundamentals of the web.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/qaisirnaseer302/E-Commerece-Store',
-    live: 'https://example.com'
-  }
+  },
 ];
 
-const Projects: React.FC = () => {
-  return (
-    <section id="projects" className="section container">
-      <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
-          Selected <span className="text-gradient">Works</span>
-        </h2>
-        <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto' }}>
-          A showcase of complex systems I've architected and built from the ground up.
-        </p>
+const Projects = () => (
+  <section id="projects" className="section projects-section">
+    <div className="container">
+      <div className="section-heading reveal">
+        <span className="eyebrow">Selected work</span>
+        <h2>Ideas made<br /><span className="text-accent">tangible.</span></h2>
+        <p>A few projects that reflect how I explore product ideas, connect technologies, and learn by shipping.</p>
       </div>
-
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+      <div className="project-list">
         {projects.map((project, index) => (
-          <div key={index} className="glass" style={{
-            display: 'flex',
-            flexDirection: 'column',
-            overflow: 'hidden',
-            transition: 'all 0.3s ease'
-          }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-10px)';
-              e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 240, 255, 0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = 'var(--glass-shadow)';
-            }}>
-            <div style={{
-              height: '200px',
-              background: 'linear-gradient(145deg, rgba(0,240,255,0.1), rgba(138,43,226,0.1))',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderBottom: '1px solid var(--glass-border)'
-            }}>
-              <span style={{ fontSize: '4rem', opacity: 0.5 }}>🚀</span>
+          <article className={`project-item reveal${index === 1 ? ' reveal-delay-1' : ''}${index === 2 ? ' reveal-delay-2' : ''}`} key={project.number}>
+            <span className="project-number">{project.number}</span>
+            <div>
+              <h3 className="project-title">{project.title}</h3>
+              <span className="project-label">{project.label}</span>
             </div>
-
-            <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 600 }}>{project.title}</h3>
-                <div style={{ display: 'flex', gap: '0.8rem' }}>
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)' }}>
-                    <FaGithub className="hover-icon" size={20} />
-                  </a>
-                  <a href={project.live} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)' }}>
-                    <FaExternalLinkAlt className="hover-icon" size={18} />
-                  </a>
-                </div>
-              </div>
-
-              <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', flex: 1 }}>
-                {project.description}
-              </p>
-
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                {project.tech.map((tech, i) => (
-                  <span key={i} style={{
-                    fontSize: '0.8rem',
-                    padding: '0.3rem 0.8rem',
-                    background: 'rgba(255,255,255,0.05)',
-                    borderRadius: '20px',
-                    color: 'var(--accent-cyan)'
-                  }}>
-                    {tech}
-                  </span>
-                ))}
+            <div className="project-detail">
+              <p className="project-description">{project.description}</p>
+              <div className="project-tags">
+                {project.tech.map((tech) => <span key={tech}>{tech}</span>)}
               </div>
             </div>
-          </div>
+            <a className="project-link" href={project.github} target="_blank" rel="noreferrer" aria-label={`View ${project.title} on GitHub`}>
+              <FiArrowUpRight aria-hidden="true" />
+            </a>
+          </article>
         ))}
       </div>
-
-      <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
-          View All Projects
+      <div className="projects-end reveal">
+        <a className="text-link" href="https://github.com/qaisirnaseer302" target="_blank" rel="noreferrer">
+          More experiments on GitHub <FiArrowUpRight aria-hidden="true" />
         </a>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Projects;

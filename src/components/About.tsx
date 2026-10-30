@@ -1,63 +1,44 @@
-import React from 'react';
-
-const About: React.FC = () => {
-  return (
-    <section id="about" className="section container">
-      <div className="glass" style={{ padding: '4rem', display: 'flex', gap: '4rem', alignItems: 'center', flexWrap: 'wrap' }}>
-        <div style={{ flex: '1 1 400px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>
-            About <span className="text-gradient">Me</span>
-          </h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '1.1rem' }}>
-            I am a passionate software engineer with a deep understanding of modern web architectures. Over the years, I've cultivated a design-driven approach to logic—bridging the gap between robust backend systems and stunning, intuitive user interfaces.
-          </p>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', fontSize: '1.1rem' }}>
-            My goal is to build scalable applications that not only solve complex business problems but also deliver memorable digital experiences through meticulous attention to detail and performance optimization.
-          </p>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1.5rem' }}>
-            <div>
-              <h3 style={{ fontSize: '2rem', color: 'var(--accent-cyan)' }}>1+</h3>
-              <p style={{ color: 'var(--text-muted)' }}>Years Experience</p>
-            </div>
-            <div>
-              <h3 style={{ fontSize: '2rem', color: 'var(--accent-purple)' }}>5+</h3>
-              <p style={{ color: 'var(--text-muted)' }}>Projects Completed</p>
-            </div>
-            <div>
-              <h3 style={{ fontSize: '2rem', color: 'var(--accent-cyan)' }}>100%</h3>
-              <p style={{ color: 'var(--text-muted)' }}>Client Satisfaction</p>
-            </div>
-          </div>
+const About = () => (
+  <section id="about" className="section about-section">
+    <div className="container about-layout">
+      <div className="about-aside reveal">
+        <span className="eyebrow">A little context</span>
+        <h2>One foot in<br />product, one in<br /><span className="text-accent">the platform.</span></h2>
+      </div>
+      <div className="about-copy reveal reveal-delay-1">
+        <p>
+          I enjoy working across the whole stack: shaping a clear user experience, building the systems behind it, and making sure the pieces work well together.
+        </p>
+        <p>
+          My toolkit spans modern frontend development, backend services, databases, and the practical DevOps foundations that help applications ship and run reliably. I value clean interfaces, maintainable code, and learning by building.
+        </p>
+        <div className="stat-row" aria-label="Portfolio highlights">
+          <div className="stat"><strong>01+</strong><span>Years building</span></div>
+          <div className="stat"><strong>05+</strong><span>Projects explored</span></div>
+          <div className="stat"><strong>Full</strong><span>Stack perspective</span></div>
         </div>
-
-        <div style={{ flex: '1 1 300px', display: 'flex', justifyContent: 'center' }}>
-          <div style={{
-            position: 'relative',
-            width: '100%',
-            maxWidth: '400px',
-            aspectRatio: '1',
-            borderRadius: '24px',
-            background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))',
-            border: '1px solid var(--glass-border)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            overflow: 'hidden'
-          }}>
-            <div style={{
-              position: 'absolute',
-              inset: '0',
-              background: 'var(--accent-gradient)',
-              opacity: 0.1,
-              zIndex: 0
-            }}></div>
-            <span style={{ fontSize: '5rem', zIndex: 1 }}>👨‍💻</span>
+        <div className="location-card reveal reveal-delay-2">
+          <div className="location-copy">
+            <span>Currently based in</span>
+            <strong>Multan, Pakistan</strong>
+            <a href="https://www.openstreetmap.org/search?query=Multan%2C%20Pakistan" target="_blank" rel="noreferrer">
+              Find me on the map ↗
+            </a>
+          </div>
+          <div className="location-map" role="img" aria-label="Stylized map showing Multan, Pakistan">
+            <svg viewBox="0 0 220 215" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <path className="map-grid" d="M0 36H220M0 86H220M0 136H220M0 186H220M38 0V215M88 0V215M138 0V215M188 0V215" />
+              <path className="map-road-minor" d="M-10 170C39 147 57 170 92 143S145 113 235 123M-8 66C44 93 68 31 109 54S171 94 231 53M32-8C45 42 21 80 54 116S102 170 86 224M169-10C140 42 178 75 153 113S129 163 159 226" />
+              <path className="map-road" d="M-4 108C47 102 59 129 94 105S151 72 224 87" />
+              <path className="map-road" d="M108-8C103 34 130 63 114 99S83 159 119 224" />
+              <circle className="map-pulse" cx="118" cy="99" r="13" />
+              <circle className="map-pin" cx="118" cy="99" r="6" />
+            </svg>
           </div>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default About;
