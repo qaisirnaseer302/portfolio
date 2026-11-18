@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { flushSync } from 'react-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -16,6 +17,30 @@ function getInitialTheme(): Theme {
 
 const App = () => {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
+
+  const handleThemeToggle = (origin: HTMLElement) => {
+    const nextTheme = theme === 'light' ? 'dark' : 'light';
+    const transitionDocument = document as Document & {
+      startViewTransition?: (callback: () => void) => unknown;
+    };
+
+    if (!transitionDocument.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setTheme(nextTheme);
+      return;
+    }
+
+    const bounds = origin.getBoundingClientRect();
+    const root = document.documentElement;
+    root.style.setProperty('--theme-origin-x', `${bounds.left + bounds.width / 2}px`);
+    root.style.setProperty('--theme-origin-y', `${bounds.top + bounds.height / 2}px`);
+
+    transitionDocument.startViewTransition.call(document, () => {
+      flushSync(() => {
+        root.dataset.theme = nextTheme;
+        setTheme(nextTheme);
+      });
+    });
+  };
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -44,7 +69,7 @@ const App = () => {
       <a className="skip-link" href="#main">Skip to content</a>
       <Navbar
         theme={theme}
-        onThemeToggle={() => setTheme((current) => current === 'light' ? 'dark' : 'light')}
+        onThemeToggle={handleThemeToggle}
       />
       <main id="main">
         <Hero />

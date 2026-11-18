@@ -11,7 +11,12 @@
 .nav-actions { display: flex; align-items: center; gap: 12px; }
 .theme-toggle, .menu-toggle { display: inline-grid; width: 40px; height: 40px; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); cursor: pointer; transition: transform 200ms ease, border-color 200ms ease, background 250ms ease; }
 .theme-toggle:hover, .menu-toggle:hover { transform: rotate(-8deg); border-color: var(--accent); }
-.theme-toggle svg, .menu-toggle svg { width: 17px; height: 17px; }
+.theme-toggle { position: relative; }
+.theme-icon { position: absolute; inset: 0; display: grid; place-items: center; transition: opacity 180ms ease, transform 420ms cubic-bezier(.2,.7,.2,1); }
+.theme-icon svg, .menu-toggle svg { width: 17px; height: 17px; }
+.theme-icon.is-visible { opacity: 1; transform: translateY(0) rotate(0) scale(1); }
+.theme-icon.is-hidden { opacity: 0; transform: translateY(9px) rotate(45deg) scale(.55); }
+.theme-icon.is-hidden.is-sun { transform: translateY(-9px) rotate(-45deg) scale(.55); }
 .nav-contact { padding: 10px 17px; border: 1px solid var(--line); border-radius: 4px; font-size: .8rem; transition: color 180ms ease, background 180ms ease, border 180ms ease; }
 .nav-contact:hover { color: var(--page); border-color: var(--ink); background: var(--ink); }
 .menu-toggle { display: none; }

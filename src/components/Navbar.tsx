@@ -3,7 +3,7 @@ import { FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi';
 
 type NavbarProps = {
   theme: 'light' | 'dark';
-  onThemeToggle: () => void;
+  onThemeToggle: (origin: HTMLElement) => void;
 };
 
 const links = [
@@ -63,11 +63,16 @@ const Navbar = ({ theme, onThemeToggle }: NavbarProps) => {
           <button
             className="theme-toggle"
             type="button"
-            onClick={onThemeToggle}
+            onClick={(event) => onThemeToggle(event.currentTarget)}
             aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
             title={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
           >
-            {theme === 'light' ? <FiMoon aria-hidden="true" /> : <FiSun aria-hidden="true" />}
+            <span className={`theme-icon${theme === 'light' ? ' is-visible' : ' is-hidden'}`}>
+              <FiMoon aria-hidden="true" />
+            </span>
+            <span className={`theme-icon${theme === 'dark' ? ' is-visible' : ' is-hidden is-sun'}`}>
+              <FiSun aria-hidden="true" />
+            </span>
           </button>
           <button
             className="menu-toggle"

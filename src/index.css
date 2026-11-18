@@ -55,6 +55,15 @@ img { display: block; max-width: 100%; }
 ul { list-style: none; margin: 0; padding: 0; }
 ::selection { color: white; background: var(--accent); }
 
+::view-transition-old(root) { animation: none; }
+::view-transition-new(root) {
+  animation: theme-reveal 700ms cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes theme-reveal {
+  from { clip-path: circle(0 at var(--theme-origin-x, 50vw) var(--theme-origin-y, 50vh)); }
+  to { clip-path: circle(150vmax at var(--theme-origin-x, 50vw) var(--theme-origin-y, 50vh)); }
+}
+
 .container { width: min(1120px, calc(100% - 64px)); margin-inline: auto; }
 .section { padding: 128px 0; scroll-margin-top: 76px; }
 .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); font: 500 11px/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
