@@ -25,6 +25,14 @@ const projects = [
     tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/qaisirnaseer302/E-Commerece-Store',
   },
+  {
+    number: '04',
+    title: 'PoseMate',
+    label: 'Community · Web app',
+    description: 'An Pose suggestion Ai web app that will track your current scene and suggest you poses according to that scene.Also you can choose any pose from any category of your choice.',
+    tech: ['React.Js', 'TailwindCSS', 'Node.js',"PostgreSql"],
+    github: 'https://github.com/qaisirnaseer302/pose-Mate',
+  },
 ];
 
 const Projects = () => (
